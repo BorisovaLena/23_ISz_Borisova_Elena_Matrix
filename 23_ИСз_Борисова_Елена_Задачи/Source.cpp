@@ -7,19 +7,19 @@ using namespace std;
 class Matrix
 {
 private:
-	int rows, cols;
-	vector<vector<int>> data;
+	int rows, cols; //Количество строк и столбцов
+	vector<vector<int>> data; //Двумерный вектор с данными матрицы
 
 public:
 	Matrix() : rows(0), cols(0) {}
-	Matrix(int rows, int cols) : rows(rows), cols(cols), data(rows, vector<int>(cols, 0)) {}
+	Matrix(int rows, int cols) : rows(rows), cols(cols), data(rows, vector<int>(cols, 0)) {} //Создание матрицы, заполненной нулями
 
-    int getRows() const
+    int getRows() const //Получение количества строк
     {
         return rows;
     }
 
-    int getCols() const
+    int getCols() const //Получение количества столбцов
     {
         return cols;
     }
@@ -109,10 +109,10 @@ istream& operator>>(istream& is, Matrix& matrix)
     cout << "Введите количество столбцов: ";
     is >> matrix.cols;
 
-    matrix.data.resize(matrix.rows);
+    matrix.data.resize(matrix.rows); //Изменение размера матрицы
     for (int i = 0; i < matrix.rows; i++)
     {
-        matrix.data[i].resize(matrix.cols);
+        matrix.data[i].resize(matrix.cols); //Изменение размера i-ой строки
         for (int j = 0; j < matrix.cols; j++)
         {
             cout << "Элемент [" << i + 1 << "][" << j + 1 << "]: ";
@@ -135,9 +135,6 @@ ostream& operator<<(ostream& os, const Matrix& matrix)
     }
     return os;
 }
-
-
-
 
 int main()
 {
@@ -190,10 +187,6 @@ int main()
     {
         cout << "Для умножения количество стоблцов 1-ой матрицы должно быть равно количеству строк 2-ой матрицы!\n";
     }
-
-
-
-   
 
 	return 0;
 }
